@@ -1,4 +1,4 @@
-site_name: Chorona Vírus
+site_name: Sistema de Agendamento de Salas
 theme: readthedocs
 markdown_extensions:
   - attr_list
@@ -9,4 +9,5 @@ markdown_extensions:
       pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
+
   - pymdownx.superfences
