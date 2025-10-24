@@ -8,6 +8,7 @@ Este site apresenta as funcionalidades, instalação, uso e detalhes técnicos d
 Permitir que usuários cadastrem salas e realizem agendamentos, consultando e excluindo informações quando necessário.
 
 O sistema possui:
+
 - Cadastro e listagem de salas
 - Cadastro e listagem de agendamentos
 - Armazenamento dos dados no navegador via *localStorage*
@@ -16,6 +17,7 @@ O sistema possui:
 # Sobre o Projeto
 
 O Sistema de Agendamento de Salas foi desenvolvido como trabalho final da disciplina de Engenharia de Software, utilizando metodologia ágil SCRUM e Kanban do GitHub para organização.
+
 - **Público-alvo:** Professores, estudantes e equipe administrativa da instituição.
 
 ## Tecnologias Utilizadas
@@ -81,3 +83,4 @@ Este manual explica como utilizar o Sistema de Agendamento de Salas.
 ### Listar e Excluir Agendamentos
 - Acesse **Lista de Agendamentos**
 - Utilize **Excluir** quando necessário
+
