@@ -27,6 +27,6 @@ function removerSala(listaAtual, idParaRemover) {
 }
 
 
-if (typeof module !== 'undefined') {
-    module.exports = { validarSala, criarSala, adicionarSala, removerSala };
-}
+// if (typeof module !== 'undefined') {
+module.exports = { validarSala, criarSala, adicionarSala, removerSala };
+// }

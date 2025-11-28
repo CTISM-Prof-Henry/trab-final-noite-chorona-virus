@@ -15,7 +15,6 @@ QUnit.module("Salas Core", () => {
     });
 
     QUnit.test("Deve validar dados da sala (Caminhos de Erro)", (assert) => {
-        
         assert.ok(validarSala("Sala A", 10, "Sala"), "Aceita dados válidos");
         assert.notOk(validarSala("", 10, "Sala"), "Rejeita nome vazio");
         assert.notOk(validarSala("Sala B", 0, "Sala"), "Rejeita capacidade zero");

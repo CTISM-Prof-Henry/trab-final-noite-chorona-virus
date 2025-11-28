@@ -52,6 +52,6 @@ function removerAgendamento(listaAtual, id) {
     return listaAtual.filter(item => item.id !== id);
 }
 
-if (typeof module !== 'undefined') {
-    module.exports = { validarDatas, verificarConflito, criarAgendamento, adicionarAgendamento, removerAgendamento };
-}
+// if (typeof module !== 'undefined') {
+module.exports = { validarDatas, verificarConflito, criarAgendamento, adicionarAgendamento, removerAgendamento };
+// }
