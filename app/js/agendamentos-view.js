@@ -20,7 +20,6 @@ document.getElementById('form-agendamento').addEventListener('submit', (e) => {
 
     try {
         const salaNome = document.getElementById('salaSelect').value;
-        // Pega o valor direto do input datetime-local (vem como string ISO: "YYYY-MM-DDTHH:MM")
         const dataHoraInicial = document.getElementById('dataHoraInicial').value;
         const dataHoraFinal = document.getElementById('dataHoraFinal').value;
         const cpf = document.getElementById('cpf').value;
@@ -58,7 +57,7 @@ document.getElementById('form-agendamento').addEventListener('submit', (e) => {
     }
 });
 
-// Nova função de formatação para ficar bonito (Dia/Mês às Hora:Min)
+// Função de formatação (Dia/Mês às Hora:Min)
 function formatarDataHora(dataISO) {
     if(!dataISO) return "";
     const data = new Date(dataISO);

@@ -8,7 +8,7 @@ const {
 
 QUnit.module("Agendamento Core", () => {
 
-    // --- TESTE 1: Validação de Datas ---
+    // Validação de Datas 
     QUnit.test("validarDatas deve retornar false se data final for anterior à inicial", (assert) => {
         const inicio = "2025-12-25T10:00";
         const fimInvalido = "2025-12-20T10:00";
@@ -23,7 +23,7 @@ QUnit.module("Agendamento Core", () => {
         assert.ok(validarDatas(inicio, fimValido), "Aceitou data válida corretamente");
     });
 
-    // --- TESTE 2: Criação de Objeto ---
+    // Criação de Agendamento
     QUnit.test("criarAgendamento deve retornar objeto completo", (assert) => {
         const resultado = criarAgendamento(
             "Lab 101",
@@ -33,7 +33,6 @@ QUnit.module("Agendamento Core", () => {
             "Rafaela"
         );
 
-        // Verificações
         assert.ok(resultado.id, "O ID foi gerado");
         assert.equal(resultado.salaNome, "Lab 101", "Nome da sala está correto");
         assert.equal(resultado.nome, "Rafaela", "Nome do responsável está correto");
@@ -50,13 +49,12 @@ QUnit.module("Agendamento Core", () => {
             );
         };
 
-        // Verificação
         assert.throws(acaoComErro, Error, "O sistema bloqueou a criação com data errada");
     });
 
-    // --- TESTE 3: Detecção de Conflitos ---
+    // Detecção de Conflitos
     QUnit.test("verificarConflito deve detectar sobreposição de horários", (assert) => {
-        // Cenário: Agendamento existente das 14h às 16h
+        // Agendamento existente
         const listaExistente = [{
             id: 1,
             salaNome: "Sala A",
@@ -64,7 +62,7 @@ QUnit.module("Agendamento Core", () => {
             dataHoraFinal: "2025-11-28T16:00"
         }];
 
-        // Tentativa: Agendar das 15h às 17h (Conflito!)
+        // Agendamento com conflito
         const novoTentativa = {
             salaNome: "Sala A",
             dataHoraInicial: "2025-11-28T15:00",
@@ -73,7 +71,6 @@ QUnit.module("Agendamento Core", () => {
 
         const conflito = verificarConflito(listaExistente, novoTentativa);
 
-        // Se conflito não for undefined/null, o teste passa
         assert.ok(conflito, "O sistema detectou o conflito");
         if (conflito) {
             assert.equal(conflito.id, 1, "Identificou corretamente o agendamento conflitante");
@@ -88,7 +85,7 @@ QUnit.module("Agendamento Core", () => {
             dataHoraFinal: "2025-11-28T16:00"
         }];
 
-        // Tentativa: Agendar às 18h (Livre)
+        // Agendar horário livre
         const novoLivre = {
             salaNome: "Sala A",
             dataHoraInicial: "2025-11-28T18:00",
@@ -97,20 +94,19 @@ QUnit.module("Agendamento Core", () => {
 
         const conflito = verificarConflito(listaExistente, novoLivre);
 
-        // Esperamos que seja undefined (sem conflito)
         assert.notOk(conflito, "Não apontou conflito onde não existe");
     });
 
-    // --- TESTE 4: Funções Auxiliares  ---
+    // Funções Extras
     QUnit.test("Deve adicionar e remover agendamento da lista", (assert) => {
         const item = { id: 99, salaNome: "Teste" };
         let lista = [];
 
-        // Testa Adicionar
+        // Adicionar
         lista = adicionarAgendamento(lista, item);
         assert.equal(lista.length, 1, "Adicionou item na lista");
 
-        // Testa Remover
+        // Remover
         lista = removerAgendamento(lista, 99);
         assert.equal(lista.length, 0, "Removeu item da lista");
     });

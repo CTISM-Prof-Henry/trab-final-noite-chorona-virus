@@ -6,28 +6,27 @@ function validarSala(nome, capacidade, tipo) {
     return true;
 }
 
-// Cria o objeto sala (Fábrica)
+// Cria Sala 
 function criarSala(nome, capacidade, tipo) {
     return {
-        id: Date.now(), // Gera ID único baseado no relógio
+        id: Date.now(), 
         nome: nome,
         capacidade: parseInt(capacidade),
         tipo: tipo
     };
 }
 
-// Adiciona sala na lista (Imutabilidade simples)
+// Adiciona sala na lista 
 function adicionarSala(listaAtual, novaSala) {
-    // Retorna uma NOVA lista contendo tudo que tinha antes + a nova
     return [...listaAtual, novaSala];
 }
 
-// Remove sala da lista pelo ID
+// Remove sala da lista
 function removerSala(listaAtual, idParaRemover) {
     return listaAtual.filter(sala => sala.id !== idParaRemover);
 }
 
-// Exportação para testes (Node.js) - O navegador ignora isso
+
 if (typeof module !== 'undefined') {
     module.exports = { validarSala, criarSala, adicionarSala, removerSala };
 }

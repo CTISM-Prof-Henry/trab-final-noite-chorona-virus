@@ -19,7 +19,6 @@ function verificarConflito(listaAgendamentos, novo) {
         const fimItem = new Date(item.dataHoraFinal).getTime();
 
         // 2. Lógica de Interseção de Intervalos
-        // (O novo começa antes do antigo terminar) E (O novo termina depois do antigo começar)
         const temConflito = (inicioNovo < fimItem) && (fimNovo > inicioItem);
         
         return temConflito;
@@ -38,7 +37,7 @@ function criarAgendamento(salaNome, dataHoraInicial, dataHoraFinal, cpf, nome) {
     return {
         id: Date.now(),
         salaNome,
-        dataHoraInicial, // Formato ISO: "2025-11-28T14:30"
+        dataHoraInicial,
         dataHoraFinal,
         cpf,
         nome
