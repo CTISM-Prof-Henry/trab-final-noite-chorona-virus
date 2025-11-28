@@ -23,10 +23,11 @@ O projeto foi construído utilizando tecnologias web padrão, garantindo leveza 
 | Tecnologia | Função |
 | :--- | :--- |
 | **HTML** | Estrutura semântica das páginas. |
-| **CSS** | Estilização com variáveis e design responsivo. |
+| **CSS** | Estilização com variáveis e design responsivo (Tema UFSM). |
 | **JavaScript** | Lógica de negócio, validações e manipulação do DOM. |
 | **LocalStorage** | Banco de dados local (no navegador do usuário). |
-| **Jest** | Framework para testes automatizados de unidade e integração. |
+| **QUnit** | Framework para testes automatizados unitários e de integração. |
+| **NYC (Istanbul)** | Ferramenta para relatório de cobertura de código. |
 
 ---
 
@@ -53,7 +54,7 @@ Como o projeto é estático (não depende de servidor backend), a execução é 
 
 ### Pré-requisitos
 * Um navegador web moderno (Chrome, Firefox, Edge).
-* (Opcional) Node.js instalado apenas se desejar rodar os testes.
+* (Opcional) Node.js instalado apenas se desejar rodar os testes automatizados.
 
 ### Passo a Passo
 1.  Baixe ou clone o repositório do projeto.
@@ -65,12 +66,12 @@ Como o projeto é estático (não depende de servidor backend), a execução é 
 
 ## Testes Automatizados
 
-O sistema possui uma suíte de testes desenvolvida com **Jest** para garantir a confiabilidade da lógica.
+O sistema possui uma suíte de testes desenvolvida com **QUnit** para garantir a confiabilidade da lógica, além de relatórios de cobertura gerados pelo **NYC**.
 
 Para executar os testes:
 
 1.  Abra o terminal na raiz do projeto.
-2.  Instale as dependências:
+2.  Instale as dependências (caso ainda não tenha feito):
     ```bash
     npm install
     ```
@@ -79,10 +80,9 @@ Para executar os testes:
     npm test
     ```
 
-**O que é testado?**
-* Criação correta dos objetos de agendamento.
-* Validação cronológica de datas (Início < Fim).
-* **Detector de Conflitos:** Garante que o sistema bloqueie reservas sobrepostas.
+**O que será exibido?**
+* O resultado dos testes no console (Pass/Fail).
+* Uma tabela de **Cobertura de Código** indicando a porcentagem do sistema que foi testada.
 
 ---
 
@@ -93,9 +93,8 @@ Para executar os testes:
 ├── app/
 │   ├── css/          # Folhas de estilo (Tema UFSM)
 │   ├── html/         # Páginas do sistema (View)
-│   ├── js/           # Lógica do sistema (Core + View)
-│   └── testes.html   # Visualizador visual de testes
+│   └── js/           # Lógica do sistema (Core + View)
 ├── docs/             # Documentação (MkDocs)
+├── test/             # Arquivos de Teste (QUnit)
 ├── mkdocs.yml        # Configuração do site de documentação
-└── package.json      # Configuração dos testes (Jest)
-
+└── package.json      # Dependências e Scripts de Teste
