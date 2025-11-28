@@ -1,0 +1,27 @@
+{
+  "name": "trab-final-noite-chorona-virus",
+  "version": "1.0.0",
+  "description": "[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/BJmkW5Ih)\r # Título do repositório",
+  "main": "eslint.config.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CTISM-Prof-Henry/trab-final-noite-chorona-virus.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/CTISM-Prof-Henry/trab-final-noite-chorona-virus/issues"
+  },
+  "homepage": "https://github.com/CTISM-Prof-Henry/trab-final-noite-chorona-virus#readme",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}

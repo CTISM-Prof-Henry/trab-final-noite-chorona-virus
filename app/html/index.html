@@ -1,31 +1,76 @@
 <!DOCTYPE html>
-<html lang="pt_BR" xmlns="http://www.w3.org/1999/html">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Agendamento de Salas - Colégio Politécnico</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UFSM - Gestão de Salas</title>
     <link rel="stylesheet" href="../css/style.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-<header>
-    <h1>Sistema de Agendamento de Salas</h1>
-    <nav>
-        Agendar Salas
-        Verificar Agendamentos (listar salas agendadas?)
-    </nav>
-</header>
+    <header class="ufsm-header">
+        <div class="header-content">
+            <div class="brand">
+                <i class="fas fa-university fa-lg"></i>
+                Gestão de Salas
+            </div>
+            <nav class="ufsm-nav">
+                <a href="index.html" class="active"><i class="fas fa-home"></i> Início</a>
+                <a href="salas.html"><i class="fas fa-chalkboard-teacher"></i> Salas</a>
+                <a href="agendamentos.html"><i class="fas fa-calendar-alt"></i> Agendamentos</a>
+            </nav>
+        </div>
+    </header>
 
+    <main class="main-content">
+        <div class="container">
+            <div class="card-panel" style="text-align: center; margin-bottom: 30px;">
+                <h1 style="border:none; margin-bottom: 10px;">Bem-vindo ao Sistema de Reservas</h1>
+                <p style="color: var(--text-light);">Selecione uma opção abaixo para começar.</p>
+            </div>
 
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <div style="font-size: 3rem; color: var(--ufsm-blue-primary); margin-bottom: 15px;">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3>Gerenciar Salas</h3>
+                    <p>Cadastre e visualize os laboratórios e salas de aula disponíveis.</p>
+                    <a href="salas.html" class="btn">Acessar Salas</a>
+                </div>
+                
+                <div class="dashboard-card">
+                    <div style="font-size: 3rem; color: var(--ufsm-blue-primary); margin-bottom: 15px;">
+                        <i class="fas fa-calendar-plus"></i>
+                    </div>
+                    <h3>Fazer Agendamento</h3>
+                    <p>Consulte a disponibilidade e realize novas reservas.</p>
+                    <a href="agendamentos.html" class="btn">Novo Agendamento</a>
+                </div>
+            </div>
 
+            <div class="card-panel">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h2 style="margin: 0;"><i class="fas fa-clock"></i> Próximos Agendamentos</h2>
+                    <span id="total-info" style="color: var(--text-light); font-weight: 500;"></span>
+                </div>
 
-<br/>
+                <table id="tabela-dashboard">
+                    <thead>
+                        <tr>
+                            <th style="width: 35%;">Data/Hora</th>
+                            <th>Sala</th>
+                            <th>Responsável</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
 
-<button id="button_click">Clique aqui</button>
-
+    <script src="../js/index.js"></script>
 </body>
-<script src="../js/script.js"></script>
-<script type="text/javascript">
-    document.getElementById("button_click").addEventListener('click', funcao_clique);
-</script>
-
 </html>

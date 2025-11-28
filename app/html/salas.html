@@ -1,10 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UFSM - Gerenciar Salas</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <header class="ufsm-header">
+        <div class="header-content">
+            <div class="brand">
+                <i class="fas fa-university fa-lg"></i> Gestão de Salas
+            </div>
+            <nav class="ufsm-nav">
+                <a href="index.html"><i class="fas fa-home"></i> Início</a>
+                <a href="salas.html" class="active"><i class="fas fa-chalkboard-teacher"></i> Salas</a>
+                <a href="agendamentos.html"><i class="fas fa-calendar-alt"></i> Agendamentos</a>
+            </nav>
+        </div>
+    </header>
 
+    <main class="main-content">
+        <div class="container">
+            <div class="card-panel">
+                <h1><i class="fas fa-plus-circle"></i> Cadastro de Salas</h1>
+                
+                <form id="form-sala">
+                    <input type="hidden" id="editId">
+                    
+                    <div class="form-group">
+                        <label for="nome">Nome/Número da Sala</label>
+                        <input type="text" id="nome" placeholder="Ex: Sala 101, Lab de Informática..." required>
+                    </div>
+
+                    <div class="flex-row">
+                        <div class="flex-col form-group">
+                            <label for="capacidade">Capacidade</label>
+                            <input type="number" id="capacidade" placeholder="Ex: 40" required>
+                        </div>
+                        <div class="flex-col form-group">
+                            <label for="tipo">Tipo</label>
+                            <select id="tipo">
+                                <option value="Sala de Aula">Sala de Aula</option>
+                                <option value="Laboratório">Laboratório</option>
+                                <option value="Auditório">Auditório</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" style="width: 100%; margin-top: 10px;">
+                        <i class="fas fa-save"></i> Salvar Sala
+                    </button>
+                </form>
+
+                <h2 style="border-top: 1px solid #eee; padding-top: 30px;">
+                    <i class="fas fa-list"></i> Salas Cadastradas
+                </h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Capacidade</th>
+                            <th>Tipo</th>
+                            <th style="text-align: center;">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/salas-core.js"></script>
+    <script src="../js/salas-view.js"></script>
 </body>
 </html>
