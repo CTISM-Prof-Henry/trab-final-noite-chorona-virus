@@ -1,6 +1,7 @@
 # Sistema de Agendamento de Salas - UFSM
 
 Bem-vindo à documentação do **Sistema de Agendamento de Salas**.
+
 Este site apresenta as funcionalidades, instalação, uso e detalhes técnicos do software desenvolvido na disciplina de Engenharia de Software.
 
 ---
@@ -10,6 +11,7 @@ Este site apresenta as funcionalidades, instalação, uso e detalhes técnicos d
 O sistema é uma aplicação web (Frontend) desenvolvida para facilitar a reserva de laboratórios, auditórios e salas de aula. O foco principal é a **simplicidade** e a **prevenção de conflitos de horários**.
 
 **Principais características:**
+
 * **Interface Institucional:** Design limpo e alinhado à identidade visual da UFSM.
 * **Sem Backend Complexo:** Utiliza `localStorage` para persistência de dados no navegador.
 * **Validação Inteligente:** Algoritmo que impede o agendamento de dois eventos na mesma sala e horário (Interseção de Intervalos).
@@ -35,11 +37,13 @@ O projeto foi construído utilizando tecnologias web padrão, garantindo leveza 
 
 ### 1. Gestão de Salas
 Permite o cadastro de novos espaços físicos.
+
 * **Dados:** Nome da sala, Capacidade e Tipo (Laboratório, Sala de Aula, Auditório).
 * **Ações:** Cadastrar, Listar e Excluir.
 
 ### 2. Agendamento
 Permite reservar um espaço por um período determinado.
+
 * **Entrada:** Sala, Data/Hora de Início, Data/Hora de Término, Nome do Responsável e CPF.
 * **Validação:** O sistema verifica automaticamente se o período solicitado conflita com agendamentos existentes.
 
@@ -99,5 +103,6 @@ Para executar os testes:
 ├── mkdocs.yml        # Configuração do site de documentação
 └── package.json      # Dependências e Scripts de Teste
 ```
+
 
 
