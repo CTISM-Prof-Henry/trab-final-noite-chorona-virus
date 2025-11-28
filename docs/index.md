@@ -1,86 +1,101 @@
-# Sistema de Agendamento de Salas
+# Sistema de Agendamento de Salas - UFSM
 
-Bem-vindo à documentação do Sistema de Agendamento de Salas.
+Bem-vindo à documentação do **Sistema de Agendamento de Salas**.
 Este site apresenta as funcionalidades, instalação, uso e detalhes técnicos do software desenvolvido na disciplina de Engenharia de Software.
 
-## Objetivo do Sistema
+---
 
-Permitir que usuários cadastrem salas e realizem agendamentos, consultando e excluindo informações quando necessário.
+## Sobre o Projeto
 
-O sistema possui:
+O sistema é uma aplicação web (Frontend) desenvolvida para facilitar a reserva de laboratórios, auditórios e salas de aula. O foco principal é a **simplicidade** e a **prevenção de conflitos de horários**.
 
-- Cadastro e listagem de salas
-- Cadastro e listagem de agendamentos
-- Armazenamento dos dados no navegador via *localStorage*
-- Interface simples, funcional e responsiva
+**Principais características:**
+* **Interface Institucional:** Design limpo e alinhado à identidade visual da UFSM.
+* **Sem Backend Complexo:** Utiliza `localStorage` para persistência de dados no navegador.
+* **Validação Inteligente:** Algoritmo que impede o agendamento de dois eventos na mesma sala e horário (Interseção de Intervalos).
 
-# Sobre o Projeto
-
-O Sistema de Agendamento de Salas foi desenvolvido como trabalho final da disciplina de Engenharia de Software, utilizando metodologia ágil SCRUM e Kanban do GitHub para organização.
-
-- **Público-alvo:** Professores, estudantes e equipe administrativa da instituição.
+---
 
 ## Tecnologias Utilizadas
 
-- HTML
-- CSS
-- JavaScript
-- LocalStorage (persistência de dados no navegador)
-- MKDocs + GitHub Pages (documentação)
+O projeto foi construído utilizando tecnologias web padrão, garantindo leveza e compatibilidade.
 
-## Visão Geral
+| Tecnologia | Função |
+| :--- | :--- |
+| **HTML** | Estrutura semântica das páginas. |
+| **CSS** | Estilização com variáveis e design responsivo. |
+| **JavaScript** | Lógica de negócio, validações e manipulação do DOM. |
+| **LocalStorage** | Banco de dados local (no navegador do usuário). |
+| **Jest** | Framework para testes automatizados de unidade e integração. |
 
-### Funcionalidades esperadas
-- Cadastrar sala
-- Listar salas
-- Excluir sala
-- Agendar sala
-- Listar agendamentos
-- Excluir agendamentos
-
-# Instalação e Execução do Projeto
-
-## Requisitos
-- Navegador atualizado (Chrome, Firefox, Edge, Opera, etc)
-- Conexão com a internet apenas para baixar o repositório
-
-## Como executar
-
-1. Baixe o repositório no GitHub
-2. Extraia os arquivos (se necessário)
-3. Abra o arquivo `index.html` no navegador
-
-Não é necessário instalar dependências ou rodar servidor.
-
-# Manual do Usuário
-
-Este manual explica como utilizar o Sistema de Agendamento de Salas.
+---
 
 ## Funcionalidades
 
-### Cadastro de Salas
-1. Acesse a página **Cadastro de Sala**
-2. Informe:
-   - Nome da sala
-   - Capacidade
-   - Tipo (Sala de aula, laboratório, auditório)
-3. Clique em **Salvar**
-4. Verifique na página **Lista de Salas**
+### 1. Gestão de Salas
+Permite o cadastro de novos espaços físicos.
+* **Dados:** Nome da sala, Capacidade e Tipo (Laboratório, Sala de Aula, Auditório).
+* **Ações:** Cadastrar, Listar e Excluir.
 
-### Listagem e Exclusão de Salas
-- Acesse **Lista de Salas**
-- Utilize o botão **Excluir** para remover uma sala
+### 2. Agendamento
+Permite reservar um espaço por um período determinado.
+* **Entrada:** Sala, Data/Hora de Início, Data/Hora de Término, Nome do Responsável e CPF.
+* **Validação:** O sistema verifica automaticamente se o período solicitado conflita com agendamentos existentes.
 
-### Agendar Sala
-1. Acesse **Agendamento**
-2. Selecione a sala
-3. Informe:
-   - CPF do solicitante
-   - Datas e horários
-   - Dia da semana
-4. Clique em **Salvar**
+### 3. Dashboard
+Painel visual para acesso rápido e visualização dos próximos eventos confirmados.
 
-### Listar e Excluir Agendamentos
-- Acesse **Lista de Agendamentos**
-- Utilize **Excluir** quando necessário
+---
+
+## Guia de Instalação e Execução
+
+Como o projeto é estático (não depende de servidor backend), a execução é simples.
+
+### Pré-requisitos
+* Um navegador web moderno (Chrome, Firefox, Edge).
+* (Opcional) Node.js instalado apenas se desejar rodar os testes.
+
+### Passo a Passo
+1.  Baixe ou clone o repositório do projeto.
+2.  Navegue até a pasta `app/html/`.
+3.  Dê um duplo clique no arquivo `index.html`.
+4.  O sistema abrirá no seu navegador pronto para uso.
+
+---
+
+## Testes Automatizados
+
+O sistema possui uma suíte de testes desenvolvida com **Jest** para garantir a confiabilidade da lógica.
+
+Para executar os testes:
+
+1.  Abra o terminal na raiz do projeto.
+2.  Instale as dependências:
+    ```bash
+    npm install
+    ```
+3.  Execute o comando de teste:
+    ```bash
+    npm test
+    ```
+
+**O que é testado?**
+* Criação correta dos objetos de agendamento.
+* Validação cronológica de datas (Início < Fim).
+* **Detector de Conflitos:** Garante que o sistema bloqueie reservas sobrepostas.
+
+---
+
+## Estrutura do Projeto
+
+```text
+/
+├── app/
+│   ├── css/          # Folhas de estilo (Tema UFSM)
+│   ├── html/         # Páginas do sistema (View)
+│   ├── js/           # Lógica do sistema (Core + View)
+│   └── testes.html   # Visualizador visual de testes
+├── docs/             # Documentação (MkDocs)
+├── mkdocs.yml        # Configuração do site de documentação
+└── package.json      # Configuração dos testes (Jest)
 
