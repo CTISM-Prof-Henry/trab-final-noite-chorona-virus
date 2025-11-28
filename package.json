@@ -7,21 +7,23 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "jest"
+    "test": "nyc qunit"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/CTISM-Prof-Henry/trab-final-noite-chorona-virus.git"
+  "nyc": {
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "include": [
+      "app/js/*-core.js"
+    ],
+    "exclude": [
+      "test/**/*.js"
+    ],
+    "all": true
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/CTISM-Prof-Henry/trab-final-noite-chorona-virus/issues"
-  },
-  "homepage": "https://github.com/CTISM-Prof-Henry/trab-final-noite-chorona-virus#readme",
   "devDependencies": {
-    "jest": "^29.7.0"
+    "nyc": "^15.1.0",
+    "qunit": "^2.20.0"
   }
 }
