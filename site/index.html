@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="None" />
       <link rel="shortcut icon" href="img/favicon.ico" />
-    <title>Chorona Vírus</title>
+    <title>Sistema de Agendamento de Salas</title>
     <link rel="stylesheet" href="css/theme.css" />
     <link rel="stylesheet" href="css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Welcome to MkDocs";
+        var mkdocs_page_name = "Sistema de Agendamento de Salas - UFSM";
         var mkdocs_page_input_path = "index.md";
         var mkdocs_page_url = null;
       </script>
@@ -30,7 +30,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href="." class="icon icon-home"> Chorona Vírus
+          <a href="." class="icon icon-home"> Sistema de Agendamento de Salas
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -40,11 +40,33 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#">Welcome to MkDocs</a>
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Sistema de Agendamento de Salas - UFSM</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a>
+    <li class="toctree-l2"><a class="reference internal" href="#sobre-o-projeto">Sobre o Projeto</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#project-layout">Project layout</a>
+    <li class="toctree-l2"><a class="reference internal" href="#tecnologias-utilizadas">Tecnologias Utilizadas</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#funcionalidades">Funcionalidades</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1-gestao-de-salas">1. Gestão de Salas</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2-agendamento">2. Agendamento</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#3-dashboard">3. Dashboard</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#guia-de-instalacao-e-execucao">Guia de Instalação e Execução</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#pre-requisitos">Pré-requisitos</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#passo-a-passo">Passo a Passo</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#testes-automatizados">Testes Automatizados</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#estrutura-do-projeto">Estrutura do Projeto</a>
     </li>
     </ul>
                 </li>
@@ -56,14 +78,14 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href=".">Chorona Vírus</a>
+          <a href=".">Sistema de Agendamento de Salas</a>
         
       </nav>
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Welcome to MkDocs</li>
+      <li class="breadcrumb-item active">Sistema de Agendamento de Salas - UFSM</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -72,21 +94,112 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="welcome-to-mkdocs">Welcome to MkDocs</h1>
-<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands</h2>
+                <h1 id="sistema-de-agendamento-de-salas-ufsm">Sistema de Agendamento de Salas - UFSM</h1>
+<p>Bem-vindo à documentação do <strong>Sistema de Agendamento de Salas</strong>.
+Este site apresenta as funcionalidades, instalação, uso e detalhes técnicos do software desenvolvido na disciplina de Engenharia de Software.</p>
+<hr />
+<h2 id="sobre-o-projeto">Sobre o Projeto</h2>
+<p>O sistema é uma aplicação web (Frontend) desenvolvida para facilitar a reserva de laboratórios, auditórios e salas de aula. O foco principal é a <strong>simplicidade</strong> e a <strong>prevenção de conflitos de horários</strong>.</p>
+<p><strong>Principais características:</strong>
+* <strong>Interface Institucional:</strong> Design limpo e alinhado à identidade visual da UFSM.
+* <strong>Sem Backend Complexo:</strong> Utiliza <code>localStorage</code> para persistência de dados no navegador.
+* <strong>Validação Inteligente:</strong> Algoritmo que impede o agendamento de dois eventos na mesma sala e horário (Interseção de Intervalos).</p>
+<hr />
+<h2 id="tecnologias-utilizadas">Tecnologias Utilizadas</h2>
+<p>O projeto foi construído utilizando tecnologias web padrão, garantindo leveza e compatibilidade.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Tecnologia</th>
+<th style="text-align: left;">Função</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>HTML</strong></td>
+<td style="text-align: left;">Estrutura semântica das páginas.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>CSS</strong></td>
+<td style="text-align: left;">Estilização com variáveis e design responsivo (Tema UFSM).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>JavaScript</strong></td>
+<td style="text-align: left;">Lógica de negócio, validações e manipulação do DOM.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>LocalStorage</strong></td>
+<td style="text-align: left;">Banco de dados local (no navegador do usuário).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>QUnit</strong></td>
+<td style="text-align: left;">Framework para testes automatizados unitários e de integração.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>NYC</strong></td>
+<td style="text-align: left;">Ferramenta para relatório de cobertura de código.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="funcionalidades">Funcionalidades</h2>
+<h3 id="1-gestao-de-salas">1. Gestão de Salas</h3>
+<p>Permite o cadastro de novos espaços físicos.</p>
 <ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
+<li><strong>Dados:</strong> Nome da sala, Capacidade e Tipo (Laboratório, Sala de Aula, Auditório).</li>
+<li><strong>Ações:</strong> Cadastrar, Listar e Excluir.</li>
 </ul>
-<h2 id="project-layout">Project layout</h2>
-<div class="language-text highlight"><pre><span></span><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre></div>
+<h3 id="2-agendamento">2. Agendamento</h3>
+<p>Permite reservar um espaço por um período determinado.</p>
+<ul>
+<li><strong>Entrada:</strong> Sala, Data/Hora de Início, Data/Hora de Término, Nome do Responsável e CPF.</li>
+<li><strong>Validação:</strong> O sistema verifica automaticamente se o período solicitado conflita com agendamentos existentes.</li>
+</ul>
+<h3 id="3-dashboard">3. Dashboard</h3>
+<p>Painel visual para acesso rápido e visualização dos próximos eventos confirmados.</p>
+<hr />
+<h2 id="guia-de-instalacao-e-execucao">Guia de Instalação e Execução</h2>
+<p>Como o projeto é estático (não depende de servidor backend), a execução é simples.</p>
+<h3 id="pre-requisitos">Pré-requisitos</h3>
+<ul>
+<li>Um navegador web moderno (Chrome, Firefox, Edge).</li>
+<li>(Opcional) Node.js instalado apenas se desejar rodar os testes automatizados.</li>
+</ul>
+<h3 id="passo-a-passo">Passo a Passo</h3>
+<ol>
+<li>Baixe ou clone o repositório do projeto.</li>
+<li>Navegue até a pasta <code>app/html/</code>.</li>
+<li>Dê um duplo clique no arquivo <code>index.html</code>.</li>
+<li>O sistema abrirá no seu navegador pronto para uso.</li>
+</ol>
+<hr />
+<h2 id="testes-automatizados">Testes Automatizados</h2>
+<p>O sistema possui uma suíte de testes desenvolvida com <strong>QUnit</strong> para garantir a confiabilidade da lógica, além de relatórios de cobertura gerados pelo <strong>NYC</strong>.</p>
+<p>Para executar os testes:</p>
+<ol>
+<li>Abra o terminal na raiz do projeto.</li>
+<li>Instale as dependências (caso ainda não tenha feito):
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>npm<span class="w"> </span>install
+</span></code></pre></div></li>
+<li>Execute o comando de teste:
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>npm<span class="w"> </span><span class="nb">test</span>
+</span></code></pre></div></li>
+</ol>
+<p><strong>O que será exibido?</strong>
+* O resultado dos testes no console (Pass/Fail).
+* Uma tabela de <strong>Cobertura de Código</strong> indicando a porcentagem do sistema que foi testada.</p>
+<hr />
+<h2 id="estrutura-do-projeto">Estrutura do Projeto</h2>
+<p>```text
+/
+├── app/
+│   ├── css/          # Folhas de estilo (Tema UFSM)
+│   ├── html/         # Páginas do sistema (View)
+│   └── js/           # Lógica do sistema (Core + View)
+├── docs/             # Documentação (MkDocs)
+├── test/             # Arquivos de Teste (QUnit)
+├── mkdocs.yml        # Configuração do site de documentação</p>
+<p>└── package.json      # Dependências e Scripts de Teste</p>
               
             </div>
           </div><footer>
@@ -130,5 +243,5 @@ docs/
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2025-10-03 23:48:25.153828+00:00
+Build Date UTC : 2025-11-28 20:48:24.919122+00:00
 -->
