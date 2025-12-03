@@ -1,53 +1,110 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/BJmkW5Ih)
-# Título do repositório
+# Sistema de Agendamento de Salas - UFSM
 
-Descrição curta do repositório.
+![Status](https://img.shields.io/badge/Status-Concluído-brightgreen)
+
+Trabalho final da disciplina de Engenharia de Software. O sistema é uma aplicação web para gerenciamento e reserva de salas, focando na **simplicidade** e na **prevenção de conflitos de horários**.
+
+---
 
 ## Sumário
+* [Sobre o Projeto](#-sobre-o-projeto)
+* [Funcionalidades](#-funcionalidades)
+* [Pré-requisitos](#-pré-requisitos)
+* [Instalação e Execução](#-instalação-e-execução)
+* [Testes Automatizados](#-testes-automatizados)
+* [Estrutura do Projeto](#-estrutura-do-projeto)
 
-* [Pré-requisitos](#pré-requisitos)
-* [Instalação](#instalação)
-* [Instruções de uso](#instruções-de-uso)
-* [Contato](#contato)
-* [Bibliografia](#bibliografia)
+---
+
+## Sobre o Projeto
+
+O software foi desenvolvido para resolver o problema de organização de espaços físicos da instituição. Ele utiliza uma arquitetura sem backend, armazenando os dados no próprio navegador do usuário (`localStorage`).
+
+**Destaques Técnicos:**
+* Identidade visual alinhada à UFSM.
+* Separação clara entre Lógica e Interface.
+* Algoritmo para impedir choque de horários.
+
+---
+
+## Funcionalidades
+
+### 1. Gestão de Salas
+Permite cadastrar ambientes (Laboratórios, Salas de Aula, Auditórios), definindo capacidade e nome. Inclui listagem e exclusão.
+
+### 2. Agendamentos
+Realiza a reserva de uma sala por período (Data/Hora Início e Fim).
+* **Validação:** O sistema bloqueia automaticamente tentativas de agendamento em horários já ocupados.
+
+### 3. Dashboard
+Painel inicial que exibe os próximos eventos confirmados em ordem cronológica.
+
+---
 
 ## Pré-requisitos
 
-Descreva aqui brevemente os pré-requisitos necessários para executar o código-fonte. Descreva também
-a configuração mínima da máquina em que o código foi desenvolvido, e se alguma configuração em particular é essencial
-para sua execução (por exemplo, placa de vídeo dedicada):
+Para executar o sistema:
+* Qualquer navegador moderno (Chrome, Firefox, Edge, etc.).
 
-| Configuração        | Valor                    |
-|---------------------|--------------------------|
-| Sistema operacional | Windows 10 Pro (64 bits) |
-| Processador         | Intel core i7 9700       |
-| Memória RAM         | 16GB                     |
-| Necessita rede?     | Sim                      |
+Para rodar os testes:
+* [Node.js](https://nodejs.org/) instalado.
 
+---
 
-## Instalação
+## Instalação e Execução
 
-Descreva aqui as instruções para instalação das ferramentas para execução do código-fonte: 
+1.  **Clone o repositório:**
+    ```bash
+    git clone https://github.com/CTISM-Prof-Henry/trab-final-noite-chorona-virus.git
+    ```
+2.  **Acesse a pasta do projeto:**
+    ```bash
+    cd trab-final-noite-chorona-virus
+    ```
+3.  **Abra o Sistema:**
+    * Navegue até a pasta `app/html/`.
+    * Dê um duplo clique no arquivo `index.html`.
 
-```bash
-sudo apt-get install nano
+---
+
+## Testes Automatizados
+
+O projeto utiliza **QUnit** para testes unitários e de integração.
+
+Para rodar os testes:
+
+1.  No terminal, instale as dependências:
+    ```bash
+    npm install
+    ```
+2.  Execute o comando de teste:
+    ```bash
+    npm test
+    ```
+
+**Resultado Esperado:**
+O console exibirá o status de cada teste e uma tabela detalhando a porcentagem de código coberto pelos testes.
+
+---
+
+## 📂 Estrutura do Projeto
+
+```text
+/
+├── app/
+│   ├── css/          # Estilos (Tema UFSM)
+│   ├── html/         # Telas do sistema (View)
+│   └── js/           # Lógica (Core + View)
+├── docs/             # Documentação (MkDocs)
+├── test/             # Arquivos de Teste (QUnit)
+├── mkdocs.yml        # Configuração do site de documentação
+└── package.json      # Dependências e Scripts de Teste
 ```
-
-## Instruções de Uso
-
-Descreva aqui o passo-a-passo que outros usuários precisam realizar para conseguir executar com sucesso o código-fonte
-deste projeto:
-
-```bash
-echo "olá mundo!"
-```
-
-## Contato
-
-O repositório foi originalmente desenvolvido por Fulano: [fulano@ufsm.br]()
 
 ## Bibliografia
-
-Adicione aqui entradas numa lista com a documentação pertinente:
-
-* [Documentação coplin-db2](https://pypi.org/project/coplin-db2/)
+* [Tutorial de testes automatizados](https://github.com/CTISM-Prof-Henry/softwareTesting)
+* [Tutorial de Documentação com MKDocs](https://github.com/CTISM-Prof-Henry/mkdocsTutorial)
+* [Stack Overlfow](https://pt.stackoverflow.com/)
+* [W3 Schools](https://www.w3schools.com/js/)
+* [r/learnjavascript](https://www.reddit.com/r/learnjavascript/)
+* [r/javascript](https://www.reddit.com/r/javascript/)
