@@ -8,7 +8,7 @@ const {
 
 QUnit.module("Agendamento Core", () => {
 
-    // Validação de Datas 
+    // Validação de datas 
     QUnit.test("validarDatas deve retornar false se data final for anterior à inicial", (assert) => {
         const inicio = "2025-12-25T10:00";
         const fimInvalido = "2025-12-20T10:00";
@@ -23,7 +23,7 @@ QUnit.module("Agendamento Core", () => {
         assert.ok(validarDatas(inicio, fimValido), "Aceitou data válida corretamente");
     });
 
-    // Criação de Agendamento
+    // Criação de agendamento
     QUnit.test("criarAgendamento deve retornar objeto completo", (assert) => {
         const resultado = criarAgendamento(
             "Lab 101",
@@ -52,7 +52,7 @@ QUnit.module("Agendamento Core", () => {
         assert.throws(acaoComErro, Error, "O sistema bloqueou a criação com data errada");
     });
 
-    // Detecção de Conflitos
+    // Detecção de conflitos
     QUnit.test("verificarConflito deve detectar sobreposição de horários", (assert) => {
         // Agendamento existente
         const listaExistente = [{
@@ -97,7 +97,7 @@ QUnit.module("Agendamento Core", () => {
         assert.notOk(conflito, "Não apontou conflito onde não existe");
     });
 
-    // Funções Extras
+    // Funções extras
     QUnit.test("Deve adicionar e remover agendamento da lista", (assert) => {
         const item = { id: 99, salaNome: "Teste" };
         let lista = [];
@@ -109,6 +109,40 @@ QUnit.module("Agendamento Core", () => {
         // Remover
         lista = removerAgendamento(lista, 99);
         assert.equal(lista.length, 0, "Removeu item da lista");
+    });
+
+    // Teste para a l.0 (pelamor de deus vaaaaaai)
+    QUnit.test("criarAgendamento deve retornar null se faltar algum dado", (assert) => {
+        
+        let resultado1 = criarAgendamento(null, "2025-11-28T14:00", "2025-11-28T16:00", "CPF", "Rafaela");
+        assert.equal(resultado1, null, "Retorna null quando falta o nome da sala");
+
+        let resultado2 = criarAgendamento("Lab 01", "2025-11-28T14:00", "2025-11-28T16:00", "", "Rafaela");
+        assert.equal(resultado2, null, "Retorna null quando o CPF está vazio");
+
+        let resultado3 = criarAgendamento("Lab 01", undefined, "2025-11-28T16:00", "CPF", "Rafaela");
+        assert.equal(resultado3, null, "Retorna null quando falta a data inicial");
+    });
+
+    // Teste de conflito entre salas diferentes (l.16))
+    QUnit.test("verificarConflito deve ignorar salas diferentes", (assert) => {
+
+        const listaExistente = [{
+            id: 1,
+            salaNome: "Sala A",
+            dataHoraInicial: "2025-11-28T14:00",
+            dataHoraFinal:   "2025-11-28T16:00"
+        }];
+
+        const novaOutraSala = {
+            salaNome: "Sala B", 
+            dataHoraInicial: "2025-11-28T14:00",
+            dataHoraFinal:   "2025-11-28T16:00"
+        };
+
+        const conflito = verificarConflito(listaExistente, novaOutraSala);
+        
+        assert.notOk(conflito, "Não deu conflito pois são salas diferentes");
     });
 
 });
